@@ -13,45 +13,26 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const repository_1 = require("@loopback/repository");
-const user_repository_1 = require("../repositories/user.repository");
+const charity_repository_1 = require("../repositories/charity.repository");
 const rest_1 = require("@loopback/rest");
-let LoginController = class LoginController {
-    constructor(userRepo) {
-        this.userRepo = userRepo;
+let CharityController = class CharityController {
+    constructor(charityRepo) {
+        this.charityRepo = charityRepo;
     }
-    async login(login) {
-        var users = await this.userRepo.find();
-        var username = login.username;
-        var pword = login.password;
-        for (var i = 0; i < users.length; i++) {
-            var user = users[i];
-            if (user.username == username && user.password == pword) {
-                return user;
-            }
-        }
-        return "Error";
-    }
-    async findUserById(id) {
-        return await this.userRepo.findById(id);
+    async findCharityById(id) {
+        return await this.charityRepo.findById(id);
     }
 };
 __decorate([
-    rest_1.post('/login'),
-    __param(0, rest_1.requestBody()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], LoginController.prototype, "login", null);
-__decorate([
-    rest_1.get('/users/{id}'),
+    rest_1.get('/user/{id}'),
     __param(0, rest_1.param.path.number('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
-], LoginController.prototype, "findUserById", null);
-LoginController = __decorate([
-    __param(0, repository_1.repository(user_repository_1.UserRepository.name)),
-    __metadata("design:paramtypes", [user_repository_1.UserRepository])
-], LoginController);
-exports.LoginController = LoginController;
-//# sourceMappingURL=login.controller.js.map
+], CharityController.prototype, "findCharityById", null);
+CharityController = __decorate([
+    __param(0, repository_1.repository(charity_repository_1.CharityRepository.name)),
+    __metadata("design:paramtypes", [charity_repository_1.CharityRepository])
+], CharityController);
+exports.CharityController = CharityController;
+//# sourceMappingURL=charities.controller.js.map
