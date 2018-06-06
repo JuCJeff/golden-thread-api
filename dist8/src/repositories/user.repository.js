@@ -23,7 +23,7 @@ let UserRepository = class UserRepository extends repository_1.DefaultCrudReposi
     }
 };
 UserRepository = __decorate([
-    __param(0, core_1.inject('datasources.userdb')),
+    __param(0, core_1.inject('datasources.db')),
     __metadata("design:paramtypes", [loopback_datasource_juggler_1.DataSource])
 ], UserRepository);
 exports.UserRepository = UserRepository;

@@ -7,7 +7,7 @@ export class CharityRepository extends DefaultCrudRepository<
     Charity,
     typeof Charity.prototype.id
     > {
-    constructor(@inject('datasources.userdb') protected datasource: DataSource) {
+    constructor(@inject('datasources.db') protected datasource: DataSource) {
         super(Charity, datasource);
     }
 }

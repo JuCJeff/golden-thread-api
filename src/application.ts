@@ -6,6 +6,8 @@ import {MySequence} from './sequence';
 // Binding and Booter imports are required to infer types for BootMixin!
 import {BootMixin, Booter, Binding} from '@loopback/boot';
 import { Class, Repository, RepositoryMixin, juggler } from '@loopback/repository';
+import { UserController } from './controllers/user.controller';
+import { UserRepository } from './repositories/user.repository';
 /* tslint:enable:no-unused-variable */
 
 export class GoldenThreadApiApplication extends BootMixin(RepositoryMixin(RestApplication)) {
@@ -26,16 +28,9 @@ export class GoldenThreadApiApplication extends BootMixin(RepositoryMixin(RestAp
       },
     };
 
-    //Pizza data base
-    var dataSourceConfig = new juggler.DataSource({
-      name: "db",
-      connector: "memory"
-    });
-    this.dataSource(dataSourceConfig);
-
     //User data base
     var dataSourceConfig = new juggler.DataSource({
-      name: "userdb",
+      name: "db",
       connector: "loopback-connector-mysql",
       host: 'localhost',
       port: 3306,
@@ -44,6 +39,8 @@ export class GoldenThreadApiApplication extends BootMixin(RepositoryMixin(RestAp
       password: 'Mzj@1996'
     });
     this.dataSource(dataSourceConfig);
+    this.controller(UserController);
+    this.repository(UserRepository);
 
   }
 

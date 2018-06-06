@@ -4,4 +4,5 @@ export declare class UserController {
     private userRepo;
     constructor(userRepo: UserRepository);
     getAllUsers(): Promise<Array<User>>;
+    getDonationByUserId(userId: number, dateFrom: Date): Promise<void>;
 }

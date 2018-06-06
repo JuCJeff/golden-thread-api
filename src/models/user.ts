@@ -37,7 +37,6 @@ export class User extends Entity {
     })
     password: string;
 
-
     getId() {
         return this.id;
     }
