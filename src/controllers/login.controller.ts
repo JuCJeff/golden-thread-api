@@ -24,8 +24,4 @@ export class LoginController {
         return "Error";
     }
 
-    @get('/users/{id}')
-    async findUserById(@param.path.number('id') id: number): Promise<User> {
-      return await this.userRepo.findById(id);
-    }
 }

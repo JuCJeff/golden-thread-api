@@ -9,7 +9,7 @@ export class RegistrationController {
         @repository(UserRepository.name) private userRepo: UserRepository
     ) {}
 
-    @post('/users')
+    @post('/registration')
     async createUser(@requestBody() user: User) {
         return await this.userRepo.create(user);
     }

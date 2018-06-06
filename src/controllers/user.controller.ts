@@ -14,6 +14,11 @@ export class UserController {
     return await this.userRepo.find();
   }
 
+  @get('/users/{id}')
+  async findUserById(@param.path.number('id') id: number): Promise<User> {
+    return await this.userRepo.findById(id);
+  }
+
   @get('users/{id}/donations')
   async getDonationByUserId(
     @param.path.number("id") userId: number,

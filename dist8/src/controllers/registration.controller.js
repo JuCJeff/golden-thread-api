@@ -25,7 +25,7 @@ let RegistrationController = class RegistrationController {
     }
 };
 __decorate([
-    rest_1.post('/users'),
+    rest_1.post('/registration'),
     __param(0, rest_1.requestBody()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [user_1.User]),

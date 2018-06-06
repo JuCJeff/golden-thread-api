@@ -31,9 +31,6 @@ let LoginController = class LoginController {
         }
         return "Error";
     }
-    async findUserById(id) {
-        return await this.userRepo.findById(id);
-    }
 };
 __decorate([
     rest_1.post('/login'),
@@ -42,13 +39,6 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], LoginController.prototype, "login", null);
-__decorate([
-    rest_1.get('/users/{id}'),
-    __param(0, rest_1.param.path.number('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
-    __metadata("design:returntype", Promise)
-], LoginController.prototype, "findUserById", null);
 LoginController = __decorate([
     __param(0, repository_1.repository(user_repository_1.UserRepository.name)),
     __metadata("design:paramtypes", [user_repository_1.UserRepository])
