@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const repository_1 = require("@loopback/repository");
-let Charity = class Charity extends repository_1.Entity {
+let Payment = class Payment extends repository_1.Entity {
     getId() {
         return this.id;
     }
@@ -21,43 +21,36 @@ __decorate([
         id: true
     }),
     __metadata("design:type", Number)
-], Charity.prototype, "id", void 0);
+], Payment.prototype, "id", void 0);
 __decorate([
     repository_1.property({
-        type: 'string',
+        type: 'number',
         required: true
     }),
-    __metadata("design:type", String)
-], Charity.prototype, "name", void 0);
+    __metadata("design:type", Number)
+], Payment.prototype, "cardnumber", void 0);
+__decorate([
+    repository_1.property({
+        type: 'Date',
+    }),
+    __metadata("design:type", Date)
+], Payment.prototype, "expiry", void 0);
 __decorate([
     repository_1.property({
         type: 'string',
     }),
     __metadata("design:type", String)
-], Charity.prototype, "description", void 0);
+], Payment.prototype, "bank", void 0);
 __decorate([
     repository_1.property({
         type: 'string',
     }),
     __metadata("design:type", String)
-], Charity.prototype, "img", void 0);
-__decorate([
-    repository_1.property({
-        type: 'string',
-    }),
-    __metadata("design:type", String)
-], Charity.prototype, "url", void 0);
-__decorate([
-    repository_1.property({
-        type: 'string',
-        required: true
-    }),
-    __metadata("design:type", String)
-], Charity.prototype, "projectid", void 0);
-Charity = __decorate([
+], Payment.prototype, "nickname", void 0);
+Payment = __decorate([
     repository_1.model({
-        name: "charity"
+        name: "payment"
     })
-], Charity);
-exports.Charity = Charity;
-//# sourceMappingURL=charity.js.map
+], Payment);
+exports.Payment = Payment;
+//# sourceMappingURL=payment.js.map
